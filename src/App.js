@@ -1,24 +1,55 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import P5Sketch from './components/P5Sketch';
+import LettersList from './components/LettersList';
+import PictureGallery from './components/PictureGallery';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <header>
+          <h1>CyberCute<span className="blink">♥</span>Space</h1>
+        </header>
+        <div className="container">
+          <nav className="sidebar">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="profile-section">
+                <div className="profile-frame">
+                  <img src="path/to/profile-pic.jpg" alt="Profile" className="profile-pic" />
+                </div>
+                <h2>Your Cyber Name</h2>
+                <p className="status">"Surfing the digital waves of love ♥"</p>
+              </div>
+              <ul className="nav-links">
+                <li><Link to="/">Home Base</Link></li>
+                <li><Link to="/letters">Love Bytes</Link></li>
+                <li><Link to="/gallery">Pixel Memories</Link></li>
+              </ul>
+            </motion.div>
+          </nav>
+          <main>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Routes>
+                <Route path="/" element={<P5Sketch />} />
+                <Route path="/letters" element={<LettersList />} />
+                <Route path="/gallery" element={<PictureGallery />} />
+              </Routes>
+            </motion.div>
+          </main>
+        </div>
+      </div>
+    </Router>
   );
 }
 
