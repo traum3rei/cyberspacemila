@@ -22,8 +22,9 @@ function sketch(p) {
     }
 
     p.setup = function () {
-        p.createCanvas(p.windowWidth, p.windowHeight + 5)
+        p.createCanvas(p.windowWidth / 2.6, p.windowHeight / 1.6)
         p.background(0)
+        img.resize(700, 700)
         num = p.windowHeight - 5;
         tile = num / grid;
         gridWStart = (p.windowWidth - num) / 2

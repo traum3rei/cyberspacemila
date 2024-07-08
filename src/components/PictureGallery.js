@@ -10,7 +10,7 @@ const pictures = [
 function PictureGallery() {
     return (
         <div className="picture-gallery">
-            <h2>Pixel Memories <span className="blink">♥</span></h2>
+            <h2>These made me think of you</h2>
             <div className="gallery-grid">
                 {pictures.map((picture) => (
                     <motion.div
